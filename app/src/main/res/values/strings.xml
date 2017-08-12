@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="text_name">Name</string>
+    <string name="text_age">Age</string>
+    <string name="text_gender">Gender</string>
+
+    <string name="error_invalid_name">Name should contain only alphabets</string>
+    <string name="error_invalid_age">Age should contain only digits not starting from zero</string>
+    <string name="error_empty_name">This field is mandatory</string>
+    <string name="error_empty_age">This field is mandatory</string>
+
+    <string name="hint_age">21</string>
+    <string name="hint_name">Alibaba</string>
+
+    <string name="finish_text">Finish</string>
+    <string name="add_more_text">Add More</string>
+    
+
+    <string name="gender_male">M</string>
+    <string name="gender_female">F</string>
+</resources>

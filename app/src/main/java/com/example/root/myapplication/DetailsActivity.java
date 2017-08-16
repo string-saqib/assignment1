@@ -4,12 +4,10 @@ package com.example.root.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity implements ListFragment.onButtonClickListener {
 
     public static ArrayList<StudentInfo> students;
     public static Bundle bundle;
@@ -27,18 +25,13 @@ public class DetailsActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(android.R.id.content,fragment).commit();
 
-        Button button = (Button) findViewById(R.id.back_button);
-        button.setOnClickListener(new View.OnClickListener() {
+    }
 
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(DetailsActivity.this, MainActivity.class);
-                i.putExtras(bundle);
-                startActivity(i);
-                finish();
-            }
-        });
-
+    public void onButtonClick(){
+        Intent i = new Intent(DetailsActivity.this, MainActivity.class);
+        i.putExtras(bundle);
+        startActivity(i);
+        finish();
     }
 
 }

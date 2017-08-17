@@ -1,29 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" tools:context="com.example.root.myapplication.ListFragment">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:layout_weight="10"
-        android:scrollbars="vertical"
-        />
+    android:orientation="vertical" tools:context="com.example.root.myapplication.ListFragment"
+    >
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_more_text"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/vertical_margin"
-        android:layout_marginRight="@dimen/horizontal_margin"
         android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
         android:layout_marginStart="@dimen/horizontal_margin"
+        android:background="@color/colorPrimary"
+        android:text="@string/add_more_text"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@id/back_button"
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         />
 
-</LinearLayout>
+</RelativeLayout>

@@ -29,6 +29,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginLeft="168dp"
         android:layout_marginStart="168dp"
+        android:maxLength="12"
         android:textColorHint="@drawable/selector"/>
 
     <TextView
@@ -53,6 +54,7 @@
         android:layout_alignLeft="@id/input_name"
         android:layout_alignStart="@id/input_name"
         android:hint="@string/hint_age"
+        android:maxLength="3"
         android:textColorHint="@drawable/selector"/>
 
     <TextView

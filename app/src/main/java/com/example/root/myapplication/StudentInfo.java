@@ -7,11 +7,13 @@ public class StudentInfo implements Parcelable {
     String sName;
     int sAge;
     String sGender;
+    String sCity;
 
-    public StudentInfo(String name, int age, String gender){
+    public StudentInfo(String name, int age, String gender, String city){
         sName = name;
         sAge = age;
         sGender = gender;
+        sCity = city;
     }
 
     public StudentInfo(Parcel in){
@@ -31,6 +33,10 @@ public class StudentInfo implements Parcelable {
         return sGender;
     }
 
+    public  String getCity(){
+        return sCity;
+    }
+
     public static final Parcelable.Creator<StudentInfo> CREATOR = new Parcelable.Creator<StudentInfo>(){
         public StudentInfo createFromParcel(Parcel in){
             return new StudentInfo(in);
@@ -45,6 +51,7 @@ public class StudentInfo implements Parcelable {
         sName = in.readString();
         sAge = in.readInt();
         sGender = in.readString();
+        sCity = in.readString();
     }
 
     public int describeContents(){
@@ -56,5 +63,6 @@ public class StudentInfo implements Parcelable {
         parcel.writeString(sName);
         parcel.writeInt(sAge);
         parcel.writeString(sGender);
+        parcel.writeString(sCity);
     }
 }

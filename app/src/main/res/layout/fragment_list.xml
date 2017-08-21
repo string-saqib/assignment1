@@ -1,33 +1,72 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" tools:context="com.example.root.myapplication.ListFragment"
+    android:orientation="vertical"
+    tools:context="com.example.root.myapplication.ListFragment"
     >
 
-    <Button
-        android:id="@+id/back_button"
+    <TextView
+        android:id="@+id/login_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:minLines="2"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginEnd="@dimen/horizontal_margin"
         android:layout_marginRight="@dimen/horizontal_margin"
-        android:layout_marginStart="@dimen/horizontal_margin"
-        android:background="@color/colorPrimary"
-        android:text="@string/add_more_text"
-        android:textColor="@color/colorPrimaryDark" />
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/vertical_margin"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:layout_above="@id/back_button"
         android:scrollbars="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        android:layout_marginBottom="@dimen/vertical_margin"
         />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/button_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        >
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="@string/add_more_text"
+            android:textColor="@color/colorPrimaryLight"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"/>
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out"
+            android:textColor="@color/colorPrimaryLight"
+            android:background="@color/colorPrimary"
+            style="?android:attr/buttonBarButtonStyle"
+            />
+
+    </LinearLayout>
+</LinearLayout>

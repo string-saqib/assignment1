@@ -9,10 +9,12 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -25,10 +27,12 @@ public class MainFragment extends Fragment {
     private EditText ageView;
     private RadioGroup buttonView;
     private RadioButton checkedButton;
+    Spinner mySpinner;
 
     public static String name;
     public static String age;
     public static String gender;
+    public static String city;
     public static ArrayList<StudentInfo> studentsList;
     public static Bundle b;
 
@@ -51,6 +55,11 @@ public class MainFragment extends Fragment {
         ageView = inflatedView.findViewById(R.id.input_age);
         buttonView = inflatedView.findViewById(R.id.gender_button);
 
+        mySpinner = inflatedView.findViewById(R.id.spinner_city_list);
+        final ArrayAdapter<CharSequence> dataAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.city_list, android.R.layout.simple_spinner_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(dataAdapter);
+
         b = new Bundle();
 
         Button addButton = inflatedView.findViewById(R.id.add_more_button);
@@ -64,18 +73,20 @@ public class MainFragment extends Fragment {
                     gender = checkedButton.getText().toString();
                     name = nameView.getText().toString();
                     age = ageView.getText().toString();
+                    city = mySpinner.getSelectedItem().toString();
 
-                    StudentInfo student = new StudentInfo(name, Integer.parseInt(age), gender);
+                    StudentInfo student = new StudentInfo(name, Integer.parseInt(age), gender, city);
                     studentsList.add(student);
                     b.putParcelableArrayList("StudentsList", studentsList);
                     nameView.getText().clear();
                     ageView.getText().clear();
                     buttonView.check(R.id.female);
+                    mySpinner.setSelection(1);
                 }
             }
         });
 
-        Button finishButton = (Button) inflatedView.findViewById(R.id.finish_button);
+        Button finishButton = inflatedView.findViewById(R.id.finish_button);
         finishButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -84,11 +95,12 @@ public class MainFragment extends Fragment {
                     int checkedButtonId = buttonView.getCheckedRadioButtonId();
                     checkedButton = getView().findViewById(checkedButtonId);
 
+                    city = mySpinner.getSelectedItem().toString();
                     gender = checkedButton.getText().toString();
                     name = nameView.getText().toString();
                     age = ageView.getText().toString();
 
-                    StudentInfo student = new StudentInfo(name, Integer.parseInt(age), gender);
+                    StudentInfo student = new StudentInfo(name, Integer.parseInt(age), gender, city);
                     studentsList.add(student);
                     b.putParcelableArrayList("StudentsList", studentsList);
                     Intent i = new Intent(getActivity(), DetailsActivity.class);
@@ -112,7 +124,7 @@ public class MainFragment extends Fragment {
         String age = ageView.getText().toString();
 
         if(TextUtils.isEmpty(name)){
-            nameView.setError(getString(R.string.error_empty_name));
+            nameView.setError(getString(R.string.error_field_required));
             focusView = nameView;
             verified = false;
         }else if(!isNameValid(name)){
@@ -121,7 +133,7 @@ public class MainFragment extends Fragment {
             verified = false;
         }
         if(TextUtils.isEmpty(age)){
-            ageView.setError(getString(R.string.error_empty_age));
+            ageView.setError(getString(R.string.error_field_required));
             focusView = ageView;
             verified = false;
         }else if(!isAgeValid(age)){

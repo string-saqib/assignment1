@@ -4,6 +4,7 @@ package com.example.root.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -27,9 +28,15 @@ public class DetailsActivity extends AppCompatActivity implements ListFragment.o
 
     }
 
-    public void onButtonClick(){
-        Intent i = new Intent(DetailsActivity.this, MainActivity.class);
-        i.putExtras(bundle);
+    public void onButtonClick(View view){
+        Intent i;
+        if(view.getId() == R.id.logout_button) {
+            i = new Intent(DetailsActivity.this, LoginActivity.class);
+        }
+        else {
+            i = new Intent(DetailsActivity.this, MainActivity.class);
+            i.putExtras(bundle);
+        }
         startActivity(i);
         finish();
     }

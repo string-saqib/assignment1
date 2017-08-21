@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/name_view"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:layout_marginStart="@dimen/wide_margin"
+        android:layout_marginLeft="@dimen/wide_margin"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -30,7 +30,7 @@
         android:layout_marginLeft="168dp"
         android:layout_marginStart="168dp"
         android:maxLength="12"
-        android:textColorHint="@drawable/selector"/>
+        android:textColorHint="@color/colorHint"/>
 
     <TextView
         android:id="@+id/age_view"
@@ -55,7 +55,7 @@
         android:layout_alignStart="@id/input_name"
         android:hint="@string/hint_age"
         android:maxLength="3"
-        android:textColorHint="@drawable/selector"/>
+        android:textColorHint="@color/colorHint"/>
 
     <TextView
         android:id="@+id/gender_view"
@@ -98,15 +98,37 @@
             android:textStyle="bold"/>
     </RadioGroup>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/city"
+            android:text="City"
+            android:textStyle="bold"
+            android:textScaleX="2.0"
+            android:textColor="@color/brown"
+            android:layout_gravity="center"
+            android:layout_alignLeft="@id/age_view"
+            android:layout_alignStart="@id/age_view"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_below="@id/gender_button"/>
+
+        <Spinner
+            android:id="@+id/spinner_city_list"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/city"
+            android:layout_alignLeft="@id/input_name"
+            android:layout_alignStart="@id/input_name"/>
+
     <Button
         android:id="@+id/add_more_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_more_text"
-        android:layout_below="@id/gender_button"
+        android:layout_below="@id/city"
         android:layout_marginTop="@dimen/vertical_margin"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryLight"
         android:background="@color/colorPrimary"/>
 
     <Button
@@ -122,7 +144,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryLight"
         android:background="@color/colorPrimary"/>
 
 </RelativeLayout>
